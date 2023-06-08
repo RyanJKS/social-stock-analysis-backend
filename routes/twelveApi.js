@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const axios = require("axios");
 
+//FIND TICKER SYMBOL BASED ON WORD INPUT (USED FOR SEARCH FILTER) - TICKER SEARCH
 router.get("/stock", async (req, res) => {
   const options = {
     method: "GET",
@@ -10,7 +11,7 @@ router.get("/stock", async (req, res) => {
       format: "json",
     },
     headers: {
-      "X-RapidAPI-Key": process.env.REACT.APP.TWELVE_KEY,
+      "X-RapidAPI-Key": process.env.REACT_APP_TWELVE_KEY,
       "X-RapidAPI-Host": "twelve-data1.p.rapidapi.com",
     },
   };
