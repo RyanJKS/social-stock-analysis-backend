@@ -22,14 +22,14 @@ router.get("/news/:symbol", async (req, res) => {
   let currentDate = new Date();
 
   // One week before the current date
-  let oneWeekBeforeDate = new Date();
-  oneWeekBeforeDate.setDate(currentDate.getDate() - 2);
+  let twoDayBeforeDate = new Date();
+  twoDayBeforeDate.setDate(currentDate.getDate() - 2);
   let currentDateFormat = currentDate.toISOString().split("T")[0];
-  let oneWeekBeforeDateFormat = oneWeekBeforeDate.toISOString().split("T")[0];
+  let twoDayBeforeDateFormat = twoDayBeforeDate.toISOString().split("T")[0];
 
   let url =
     base_url +
-    `/company-news?symbol=${symbol}&from=${oneWeekBeforeDateFormat}&to=${currentDateFormat}` +
+    `/company-news?symbol=${symbol}&from=${twoDayBeforeDateFormat}&to=${currentDateFormat}` +
     api_url;
   try {
     let response = await axios.get(url);
